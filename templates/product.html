@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Телефон{% endblock %}
+{% block content %}
+    <div class="container">
+        
+        <div class="header">
+            {% for x in name%}
+            <h1>{{x.name}}</h1>
+        </div>
+        <div class="content">
+            <h3>Стоимость: {{x.price}} руб</h3>
+            <img src="{{x.image}}" alt="">
+            <h5>Дата выпуска: {{x.release_date}}</h5>
+            <div class="row">
+                <h5>Lte:</h5>
+                {%if x.lte_exists%}
+                <h5>+</h5>
+                {%else%}
+                <h5>-</h5>
+                {%endif%}
+            </div>
+
+        </div>
+        {%endfor%}
+    </div>
+{% endblock %}
